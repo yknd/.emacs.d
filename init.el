@@ -259,3 +259,5 @@
 (add-hook 'coffee-mode-hook
           '(lambda() (coffee-custom)))
 
+;; git
+(require 'magit)
