@@ -203,16 +203,20 @@
 ;; xmpfilter
 (require 'rcodetools)
 
-;; js2-mode
+;; javascript (js2-mode & espresso-mode)
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-hook 'js2-mode-hook
-          '(lambda ()
-             (setq tab-width 2)
-             (setq javascript-indent-level 2)
-             (setq js2-basic-offset tab-width)
-             (define-key js2-mode-map "\C-m" 'newline-and-indent)
-             ))
+          #'(lambda ()
+              (require 'js)
+              (setq js-indent-level 2
+                    js-expr-indent-offset 2
+                    indent-tabs-mode nil)
+              (set (make-local-variable 'indent-line-function) 'js-indent-line)))
+
+;; JSON
+(autoload #'espresso-mode "espresso" "Start espresso-mode" t)
+(add-to-list 'auto-mode-alist '("\\.json$" . espresso-mode))
 
 ;; CSS
 (defun semicolon-ret ()
