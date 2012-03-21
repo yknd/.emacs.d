@@ -16,8 +16,8 @@
 (windmove-default-keybindings)
 (setq windmove-wrap-around t)
 (setq-default indent-tabs-mode nil)
-(keyboard-translate ?\C-h ?\C-?)
-(global-set-key (kbd "C-x ?") 'help-command)
+;(keyboard-translate ?\C-h ?\C-?)
+;(global-set-key (kbd "C-x ?") 'help-command)
 
 ;; Buffer name
 (require 'uniquify)
@@ -265,3 +265,11 @@
 
 ;; git
 (require 'magit)
+
+;; C
+(add-hook 'c-mode-common-hook
+          '(lambda ()
+             (c-set-style "linux")
+             (setq indent-tabs-mode nil)    
+             (setq c-basic-offset 4)
+             ))
