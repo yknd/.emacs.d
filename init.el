@@ -16,8 +16,6 @@
 (windmove-default-keybindings)
 (setq windmove-wrap-around t)
 (setq-default indent-tabs-mode nil)
-;(keyboard-translate ?\C-h ?\C-?)
-;(global-set-key (kbd "C-x ?") 'help-command)
 
 ;; Buffer name
 (require 'uniquify)
@@ -52,8 +50,8 @@
 (global-set-key [S-f2] 'swap-screen-with-cursor)
 
 ;; font
-(set-default-font "Inconsolata-12")
-(set-face-font 'variable-pitch "Inconsolata-12")
+(set-default-font "ricty-12")
+(set-face-font 'variable-pitch "ricty-12")
 (set-fontset-font (frame-parameter nil 'font)
                   'japanese-jisx0208
                   '("ricty". "unicode-bmp")
@@ -70,18 +68,8 @@
 (setq file-name-coding-system 'utf-8)
 
 ; mozc
-;(define-key global-map "\C-\\" nil)
 (require 'mozc)
 (setq default-input-method "japanese-mozc")
-
-;; color
-(add-to-list 'default-frame-alist '(background-color . "Grey15"))
-(add-to-list 'default-frame-alist '(background-mode . dark))
-(add-to-list 'default-frame-alist '(border-color . "Grey"))
-(add-to-list 'default-frame-alist '(cursor-color . "Grey"))
-(add-to-list 'default-frame-alist '(foreground-color . "Grey"))
-(add-to-list 'default-frame-alist '(mouse-color . "Grey"))
-(set-face-background 'region "cornflower blue")
 
 ;; load path
 (defun add-to-load-path (&rest paths)
@@ -93,6 +81,12 @@
           (normal-top-level-add-subdirs-to-load-path))))))
 (add-to-load-path "elisp")
 
+; color
+(require 'color-theme)
+(require 'zenburn)
+(color-theme-initialize)
+(color-theme-zenburn)
+
 ;; AutoInstall (http://www.emacswiki.org/emacs/download/auto-install.el)
 ;; (usage) M-x install-elisp RET -> [URL] -> C-c C-c
 (when (require 'auto-install nil t)
@@ -103,15 +97,15 @@
 ;; multi-term (http://www.emacswiki.org/emacs/download//multi-term.el)
 (when (require 'multi-term nil t)
  (setq multi-term-program "/bin/bash")
- (setq term-default-bg-color "#242424")
- (setq term-default-fg-color "#bebebe")
+ (setq term-default-bg-color "#3f3f3f")
+ (setq term-default-fg-color "#dcdccc")
  (setq ansi-term-color-vector
     [unspecified
      "#000000"           ; black
      "#ff3c3c"           ; red
      "#84dd27"           ; green
      "#eab93d"           ; yellow
-     "#135ecc"           ; blue
+     "#94bff3"           ; blue
      "#f47006"           ; magenta
      "#89b6e2"           ; cyan
      "#ffffff"]          ; white
@@ -154,26 +148,26 @@
 
 ;; ruby
 (autoload 'ruby-mode "ruby-mode"
-"Mode for editing ruby source files" t)
+  "Mode for editing ruby source files" t)
 (setq auto-mode-alist
-     (append '((".rb$" . ruby-mode)) auto-mode-alist))
+      (append '((".rb$" . ruby-mode)) auto-mode-alist))
 (setq interpreter-mode-alist
-     (append '(("ruby" . ruby-mode)) interpreter-mode-alist))
+      (append '(("ruby" . ruby-mode)) interpreter-mode-alist))
 (autoload 'run-ruby "inf-ruby"
- "Run an inferior Ruby process")
+  "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby"
- "Set local key defs for inf-ruby in ruby-mode")
+  "Set local key defs for inf-ruby in ruby-mode")
 (add-hook 'ruby-mode-hook
-         '(lambda ()
-            (inf-ruby-keys)))
+          '(lambda ()
+             (inf-ruby-keys)))
 ;; rubydb
 (autoload 'rubydb "rubydb3x"
- "run rubydb on program file in buffer" t)
+  "run rubydb on program file in buffer" t)
 ;;ruby-electric
 (require 'ruby-electric)
 (add-hook 'ruby-mode-hook
-        '(lambda ()
-           (ruby-electric-mode t)))
+          '(lambda ()
+             (ruby-electric-mode t)))
 
 ;; flymakeRuby
 (require 'flymake)
