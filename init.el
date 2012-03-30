@@ -16,7 +16,6 @@
 (windmove-default-keybindings)
 (setq windmove-wrap-around t)
 (setq-default indent-tabs-mode nil)
-(setq Man-switches "-Lja")
 ;(keyboard-translate ?\C-h ?\C-?)
 ;(global-set-key (kbd "C-x ?") 'help-command)
 
