@@ -16,6 +16,7 @@
 (windmove-default-keybindings)
 (setq windmove-wrap-around t)
 (setq-default indent-tabs-mode nil)
+(setq Man-switches "-Lja")
 
 ;; Buffer name
 (require 'uniquify)
