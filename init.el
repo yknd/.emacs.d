@@ -17,6 +17,7 @@
 (setq windmove-wrap-around t)
 (setq-default indent-tabs-mode nil)
 (setq Man-switches "-Lja")
+(server-start)
 
 ;; Buffer name
 (require 'uniquify)
@@ -235,9 +236,9 @@
             (define-key css-mode-map "{" 'brace-ret-brace)
             ))
 
-;; Haml
-(require 'haml-mode)
-(add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
+;; Slim
+(require 'slim-mode)
+(add-to-list 'auto-mode-alist '("\\.slim$" . slim-mode))
 
 ;; Sass
 (autoload 'scss-mode "scss-mode")
@@ -257,9 +258,6 @@
 
 (add-hook 'coffee-mode-hook
           '(lambda() (coffee-custom)))
-
-;; git
-(require 'magit)
 
 ;; C
 (add-hook 'c-mode-common-hook
