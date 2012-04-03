@@ -210,16 +210,7 @@
                     indent-tabs-mode nil)
               (set (make-local-variable 'indent-line-function) 'js-indent-line)))
 
-;; JSON
-(autoload #'espresso-mode "espresso" "Start espresso-mode" t)
-(add-to-list 'auto-mode-alist '("\\.json$" . espresso-mode))
-
 ;; CSS
-(defun semicolon-ret ()
-  (interactive)
-  (insert ";")
-  (newline-and-indent)
-  )
 (defun brace-ret-brace ()
   (interactive)
   (insert "{") (newline-and-indent)
@@ -232,7 +223,6 @@
 (add-hook 'css-mode-hook
           (lambda ()
             (setq css-indent-offset 2)
-            (define-key css-mode-map ";" 'semicolon-ret)
             (define-key css-mode-map "{" 'brace-ret-brace)
             ))
 
@@ -244,20 +234,6 @@
 (autoload 'scss-mode "scss-mode")
 (setq scss-compile-at-save nil)
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
-
-;; CoffeeScript
-(require 'coffee-mode)
-(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
-(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
-
-(defun coffee-custom ()
-  "coffee-mode-hook"
-  (set (make-local-variable 'tab-width) 2)
-  (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
-  (setq coffee-command "~/node_modules/.bin/coffee"))
-
-(add-hook 'coffee-mode-hook
-          '(lambda() (coffee-custom)))
 
 ;; C
 (add-hook 'c-mode-common-hook
