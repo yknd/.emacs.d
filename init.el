@@ -96,28 +96,33 @@
  (auto-install-update-emacswiki-package-name t)
  (auto-install-compatibility-setup))
 
+;; shell/terminal color
+(setq ansi-color-names-vector
+      ["#000000"           ; black
+       "#ff3c3c"           ; red
+       ;; "#84dd27"           ; green
+       "#7f9f7f"           ; green
+       "#eab93d"           ; yellow
+       "#94bff3"           ; blue
+       "#f47006"           ; magenta
+       "#89b6e2"           ; cyan
+       "#ffffff"]          ; white
+      )
+
 ;; multi-term (http://www.emacswiki.org/emacs/download//multi-term.el)
 (when (require 'multi-term nil t)
  (setq multi-term-program "/bin/bash")
  (setq term-default-bg-color "#3f3f3f")
  (setq term-default-fg-color "#dcdccc")
- (setq ansi-term-color-vector
-    [unspecified
-     "#000000"           ; black
-     "#ff3c3c"           ; red
-     "#84dd27"           ; green
-     "#eab93d"           ; yellow
-     "#94bff3"           ; blue
-     "#f47006"           ; magenta
-     "#89b6e2"           ; cyan
-     "#ffffff"]          ; white
- )
 )
 (add-hook 'term-mode-hook
          '(lambda ()
                 (define-key term-raw-map (kbd "C-h") 'term-send-backspace)
                 (define-key term-raw-map (kbd "C-y") 'term-paste)))
 (global-set-key (kbd "C-c t") 'multi-term)
+
+;; shell-mode
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;; anything.el
 ;; M-x auto-install-batch anything
