@@ -1,16 +1,30 @@
+;; system-type
+(setq os-type-mac (eq system-type 'darwin)
+      os-type-linux (eq system-type 'gnu/linux))
+
 ;; start up
-(setq initial-frame-alist
-  (append (list
-           '(width . 160)
-           '(height . 48)
-           '(top . 120)
-           '(left . 120)
-          )
-          initial-frame-alist))
+(when os-type-linux
+  (setq initial-frame-alist
+        (append (list
+                 '(width . 160)
+                 '(height . 48)
+                 '(top . 120)
+                 '(left . 120)
+                 )
+                initial-frame-alist)))
+(when os-type-mac  ;; Mac book Air
+  (setq initial-frame-alist
+        (append (list
+                 '(width . 92)
+                 '(height . 48)
+                 '(top . 60)
+                 '(left . 60)
+                 )
+                initial-frame-alist)))
 (setq default-frame-alist initial-frame-alist)
 (setq inhibit-startup-message t)
-(tool-bar-mode nil)
-(menu-bar-mode nil)
+(tool-bar-mode 0)
+(menu-bar-mode 0)
 (scroll-bar-mode nil)
 (setq make-backup-files nil)
 (windmove-default-keybindings)
@@ -19,12 +33,20 @@
 (setq Man-switches "-Lja")
 (server-start)
 
+(when os-type-mac
+  (setq ns-command-modifier (quote meta))  ;; command -> Alt
+  ;(setq ns-alternate-modifier (quote super))
+  (setq exec-path (cons "/usr/local/bin" exec-path))
+  (setenv "PATH"
+          (concat '"/usr/local/bin:" (getenv "PATH")))
+  (setenv "LANG" "ja_JP.UTF-8"))
+
 ;; Buffer name
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ; line number
-(global-linum-mode)
+(global-linum-mode t)
 (global-set-key [f9] 'linum-mode)
 
 ; Insert current time
@@ -52,8 +74,12 @@
 (global-set-key [S-f2] 'swap-screen-with-cursor)
 
 ;; font
-(set-default-font "ricty-12")
-(set-face-font 'variable-pitch "ricty-12")
+(when os-type-linux
+  (set-default-font "ricty-12")
+  (set-face-font 'variable-pitch "ricty-12"))
+(when os-type-mac
+  (set-default-font "ricty-14")
+  (set-face-font 'variable-pitch "ricty-14"))
 (set-fontset-font (frame-parameter nil 'font)
                   'japanese-jisx0208
                   '("ricty". "unicode-bmp")
@@ -70,8 +96,9 @@
 (setq file-name-coding-system 'utf-8)
 
 ; mozc
-(require 'mozc)
-(setq default-input-method "japanese-mozc")
+(when os-type-linux
+  (require 'mozc)
+  (setq default-input-method "japanese-mozc"))
 
 ;; load path
 (defun add-to-load-path (&rest paths)
