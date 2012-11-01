@@ -46,7 +46,7 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ; line number
-(global-linum-mode t)
+; (global-linum-mode t)
 (global-set-key [f9] 'linum-mode)
 
 ; Insert current time
