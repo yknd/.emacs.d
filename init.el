@@ -15,10 +15,10 @@
 (when os-type-mac  ;; Mac book Air
   (setq initial-frame-alist
         (append (list
-                 '(width . 92)
-                 '(height . 48)
-                 '(top . 60)
-                 '(left . 60)
+                 '(width . 80)
+                 '(height . 50)
+                 '(top . 32)
+                 '(left . 32)
                  )
                 initial-frame-alist)))
 (setq default-frame-alist initial-frame-alist)
@@ -76,10 +76,10 @@
 ;; font
 (when os-type-linux
   (set-default-font "ricty-12")
-  (set-face-font 'variable-pitch "ricty-12"))
+  (set-face-font 'variable-pitch "Ricty-12"))
 (when os-type-mac
-  (set-default-font "ricty-14")
-  (set-face-font 'variable-pitch "ricty-14"))
+  (set-default-font "ricty-16")
+  (set-face-font 'variable-pitch "ricty-16"))
 (set-fontset-font (frame-parameter nil 'font)
                   'japanese-jisx0208
                   '("ricty". "unicode-bmp")
