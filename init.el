@@ -75,8 +75,8 @@
 
 ;; font
 (when os-type-linux
-  (set-default-font "ricty-12")
-  (set-face-font 'variable-pitch "ricty-12"))
+  (set-default-font "ricty-11")
+  (set-face-font 'variable-pitch "ricty-11"))
 (when os-type-mac
   (set-default-font "ricty-14")
   (set-face-font 'variable-pitch "ricty-14"))
