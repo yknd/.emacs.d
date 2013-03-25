@@ -16,7 +16,7 @@
   (setq initial-frame-alist
         (append (list
                  '(width . 80)
-                 '(height . 50)
+                 '(height . 48)
                  '(top . 32)
                  '(left . 32)
                  )
@@ -176,9 +176,9 @@
 (add-hook 'xml-mode-hook 'zencoding-mode)
 (add-hook 'html-mode-hook 'zencoding-mode)
 
-;; rvm
-(require 'rvm)
-(rvm-use-default)
+;; rbenv
+(setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
+(setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
 
 ;; ruby
 (autoload 'ruby-mode "ruby-mode"
