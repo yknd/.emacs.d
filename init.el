@@ -229,15 +229,9 @@
 (defun ruby-mode-set-encoding () ())
 
 ;; javascript
-(autoload 'js2-mode "js2-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-hook 'js2-mode-hook
-          '(lambda ()
-             (require 'js)
-             (setq js-indent-level 2
-                   js-expr-indent-offset 2
-                   indent-tabs-mode nil)
-             (set (make-local-variable 'indent-line-function) 'js-indent-line)))
+(setq js3-mirror-mode t)
+(autoload 'js3-mode "js3-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 
 ;; CSS
 (defun brace-ret-brace ()
