@@ -46,7 +46,7 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ; line number
-; (global-linum-mode t)
+(global-linum-mode t)
 (global-set-key [f9] 'linum-mode)
 
 ; Insert current time
@@ -75,8 +75,8 @@
 
 ;; font
 (when os-type-linux
-  (set-default-font "ricty-11")
-  (set-face-font 'variable-pitch "ricty-11"))
+  (set-default-font "ricty-12")
+  (set-face-font 'variable-pitch "ricty-12"))
 (when os-type-mac
   (set-default-font "ricty-16")
   (set-face-font 'variable-pitch "ricty-16"))
