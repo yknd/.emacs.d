@@ -15,10 +15,10 @@
 (when os-type-mac  ;; Mac book Air
   (setq initial-frame-alist
         (append (list
-                 '(width . 80)
-                 '(height . 48)
-                 '(top . 32)
-                 '(left . 32)
+                 '(width . 120)
+                 '(height . 40)
+                 '(top . 60)
+                 '(left . 40)
                  )
                 initial-frame-alist)))
 (setq default-frame-alist initial-frame-alist)
