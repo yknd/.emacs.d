@@ -15,10 +15,10 @@
 (when os-type-mac  ;; Mac book Air
   (setq initial-frame-alist
         (append (list
-                 '(width . 80)
-                 '(height . 48)
-                 '(top . 32)
-                 '(left . 32)
+                 '(width . 120)
+                 '(height . 40)
+                 '(top . 60)
+                 '(left . 40)
                  )
                 initial-frame-alist)))
 (setq default-frame-alist initial-frame-alist)
@@ -232,6 +232,14 @@
 (setq js3-mirror-mode t)
 (autoload 'js3-mode "js3-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
+
+(add-hook 'js3-mode-hook
+          #'(lambda ()
+             (require 'js)
+             (setq js-indent-level 2
+                   js-expr-indent-offset 2
+                   indent-tabs-mode nil)
+             (set (make-local-variable 'indent-line-function) 'js-indent-line))) 
 
 ;; CSS
 (defun brace-ret-brace ()
