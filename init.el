@@ -1,3 +1,13 @@
+;; load path
+(defun add-to-load-path (&rest paths)
+  (let (path)
+    (dolist (path paths paths)
+      (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
+        (add-to-list 'load-path default-directory)
+        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+          (normal-top-level-add-subdirs-to-load-path))))))
+(add-to-load-path "elisp")
+
 ;; system-type
 (setq os-type-mac (eq system-type 'darwin)
       os-type-linux (eq system-type 'gnu/linux))
@@ -6,10 +16,10 @@
 (when os-type-linux
   (setq initial-frame-alist
         (append (list
-                 '(width . 160)
-                 '(height . 48)
-                 '(top . 120)
-                 '(left . 120)
+                 '(width . 168)
+                 '(height . 64)
+                 '(top . 180)
+                 '(left . 180)
                  )
                 initial-frame-alist)))
 (when os-type-mac  ;; Mac book Air
@@ -100,16 +110,6 @@
   (require 'mozc)
   (setq default-input-method "japanese-mozc"))
 
-;; load path
-(defun add-to-load-path (&rest paths)
-  (let (path)
-    (dolist (path paths paths)
-      (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
-        (add-to-list 'load-path default-directory)
-        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-          (normal-top-level-add-subdirs-to-load-path))))))
-(add-to-load-path "elisp")
-
 ; color
 (require 'color-theme)
 (require 'zenburn)
@@ -135,18 +135,6 @@
        "#89b6e2"           ; cyan
        "#ffffff"]          ; white
       )
-
-;; multi-term (http://www.emacswiki.org/emacs/download//multi-term.el)
-(when (require 'multi-term nil t)
- (setq multi-term-program "/bin/bash")
- (setq term-default-bg-color "#3f3f3f")
- (setq term-default-fg-color "#dcdccc")
-)
-(add-hook 'term-mode-hook
-         '(lambda ()
-                (define-key term-raw-map (kbd "C-h") 'term-send-backspace)
-                (define-key term-raw-map (kbd "C-y") 'term-paste)))
-(global-set-key (kbd "C-c t") 'multi-term)
 
 ;; shell-mode
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -273,3 +261,20 @@
              (setq indent-tabs-mode nil)    
              (setq c-basic-offset 4)
              ))
+
+;; Scheme
+(setq quack-default-program "gosh")
+(require 'quack)
+
+;; CoffeeScript
+(autoload 'coffee-mode "coffee-mode" "Major mode for editing CoffeeScript." t)
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
+
+(defun coffee-custom ()
+  "coffee-mode-hook"
+  (and (set (make-local-variable 'tab-width) 2)
+       (set (make-local-variable 'coffee-tab-width) 2))
+  )
+(add-hook 'coffee-mode-hook
+          '(lambda() (coffee-custom)))
