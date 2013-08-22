@@ -159,10 +159,12 @@
 (define-key dired-mode-map "r"
   'wdired-change-to-wdired-mode)
 
-;; zen-coding
-(require 'zencoding-mode)
-(add-hook 'xml-mode-hook 'zencoding-mode)
-(add-hook 'html-mode-hook 'zencoding-mode)
+;; emmet-mode
+(require 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode)
+(add-hook 'css-mode-hook  'emmet-mode)
+(add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2)))
+(setq emmet-move-cursor-between-quotes t)
 
 ;; rbenv
 (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
