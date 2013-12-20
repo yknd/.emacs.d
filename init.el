@@ -25,10 +25,10 @@
 (when os-type-mac  ;; Mac book Air
   (setq initial-frame-alist
         (append (list
-                 '(width . 120)
-                 '(height . 40)
-                 '(top . 60)
-                 '(left . 40)
+                 '(width . 168)
+                 '(height . 48)
+                 '(top . 27)
+                 '(left . 27)
                  )
                 initial-frame-alist)))
 (setq default-frame-alist initial-frame-alist)
@@ -96,7 +96,6 @@
 )
 
 ;; character code
-(set-language-environment "japanese")
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
@@ -280,3 +279,5 @@
   )
 (add-hook 'coffee-mode-hook
           '(lambda() (coffee-custom)))
+
+(cd "~/")
