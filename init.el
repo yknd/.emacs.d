@@ -18,8 +18,8 @@
         (append (list
                  '(width . 168)
                  '(height . 64)
-                 '(top . 180)
-                 '(left . 180)
+                 '(top . 72)
+                 '(left . 512)
                  )
                 initial-frame-alist)))
 (when os-type-mac  ;; Mac book Air
@@ -85,8 +85,8 @@
 
 ;; font
 (when os-type-linux
-  (set-default-font "ricty-12")
-  (set-face-font 'variable-pitch "ricty-12"))
+  (set-default-font "ricty-13")
+  (set-face-font 'variable-pitch "ricty-13"))
 (when os-type-mac
   (set-default-font "ricty-16")
   (set-face-font 'variable-pitch "ricty-16"))
