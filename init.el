@@ -104,6 +104,13 @@
 (set-default-coding-systems 'utf-8)
 (setq file-name-coding-system 'utf-8)
 
+;; limit line length
+(require 'whitespace)
+(setq whitespace-line-column 80)
+(setq whitespace-style '(face lines-tail))
+; (add-hook 'prog-mode-hook 'whitespace-mode)
+(global-whitespace-mode +1)
+
 ; mozc
 (when os-type-linux
   (require 'mozc)
