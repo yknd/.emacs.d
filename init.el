@@ -22,13 +22,13 @@
                  '(left . 512)
                  )
                 initial-frame-alist)))
-(when os-type-mac  ;; Mac book Air
+(when os-type-mac  ;; MacBookPro
   (setq initial-frame-alist
         (append (list
-                 '(width . 168)
-                 '(height . 48)
-                 '(top . 27)
-                 '(left . 27)
+                 '(width . 172)
+                 '(height . 45)
+                 '(top . 36)
+                 '(left . 18)
                  )
                 initial-frame-alist)))
 (setq default-frame-alist initial-frame-alist)
@@ -88,8 +88,8 @@
   (set-default-font "ricty-13")
   (set-face-font 'variable-pitch "ricty-13"))
 (when os-type-mac
-  (set-default-font "ricty-16")
-  (set-face-font 'variable-pitch "ricty-16"))
+  (set-default-font "ricty-14.5")
+  (set-face-font 'variable-pitch "ricty-14.5"))
 (set-fontset-font (frame-parameter nil 'font)
                   'japanese-jisx0208
                   '("ricty". "unicode-bmp")
