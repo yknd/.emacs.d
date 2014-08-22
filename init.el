@@ -55,6 +55,9 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
+;; buffer-menu
+(global-set-key "\C-x\C-b" 'buffer-menu)
+
 ; line number
 (global-linum-mode t)
 (global-set-key [f9] 'linum-mode)
