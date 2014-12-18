@@ -1,3 +1,8 @@
+;; ELPA
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
 ;; load path
 (defun add-to-load-path (&rest paths)
   (let (path)
