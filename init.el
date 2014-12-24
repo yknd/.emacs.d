@@ -173,6 +173,9 @@
 (define-key dired-mode-map "r"
   'wdired-change-to-wdired-mode)
 
+;; Magit
+(require 'magit)
+
 ;; emmet-mode
 (require 'emmet-mode)
 (add-hook 'sgml-mode-hook 'emmet-mode)
@@ -303,4 +306,5 @@
 (add-hook 'coffee-mode-hook
           '(lambda() (coffee-custom)))
 
+;; for Mac
 (cd "~/")
