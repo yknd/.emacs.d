@@ -137,21 +137,15 @@
  (auto-install-update-emacswiki-package-name t)
  (auto-install-compatibility-setup))
 
-;; shell/terminal color
-(setq ansi-color-names-vector
-      ["#000000"           ; black
-       "#ff3c3c"           ; red
-       ;; "#84dd27"           ; green
-       "#7f9f7f"           ; green
-       "#eab93d"           ; yellow
-       "#94bff3"           ; blue
-       "#f47006"           ; magenta
-       "#89b6e2"           ; cyan
-       "#ffffff"]          ; white
-      )
-
 ;; shell-mode
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell (replace-regexp-in-string
+                          "[ \t\n]*$"
+                          ""
+                          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq eshell-path-env path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
 
 ;; anything.el
 ;; M-x auto-install-batch anything
