@@ -249,10 +249,6 @@
             (define-key css-mode-map "{" 'brace-ret-brace)
             ))
 
-;; Slim
-(require 'slim-mode)
-(add-to-list 'auto-mode-alist '("\\.slim$" . slim-mode))
-
 ;; Sass
 (autoload 'scss-mode "scss-mode")
 (setq scss-compile-at-save nil)
