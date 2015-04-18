@@ -130,13 +130,6 @@
 (color-theme-initialize)
 (color-theme-zenburn)
 
-;; AutoInstall (http://www.emacswiki.org/emacs/download/auto-install.el)
-;; (usage) M-x install-elisp RET -> [URL] -> C-c C-c
-(when (require 'auto-install nil t)
- (setq auto-install-directory "~/.emacs.d/elisp/")
- (auto-install-update-emacswiki-package-name t)
- (auto-install-compatibility-setup))
-
 ;; shell-mode
 (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (replace-regexp-in-string
@@ -146,21 +139,6 @@
     (setenv "PATH" path-from-shell)
     (setq eshell-path-env path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
-
-;; anything.el
-;; M-x auto-install-batch anything
-(require 'anything-startup)
-(setq anything-sources
-      (list anything-c-source-buffers
-            anything-c-source-bookmarks
-            anything-c-source-recentf
-            anything-c-source-file-name-history
-            anything-c-source-locate))
-(define-key anything-map (kbd "C-p") 'anything-previous-line)
-(define-key anything-map (kbd "C-n") 'anything-next-line)
-(define-key anything-map (kbd "C-v") 'anything-next-source)
-(define-key anything-map (kbd "M-v") 'anything-previous-source)
-(global-set-key (kbd "C-;") 'anything)
 
 ;; wdired
 (require 'wdired)
