@@ -145,6 +145,11 @@
 (define-key dired-mode-map "r"
   'wdired-change-to-wdired-mode)
 
+;; Helm
+(require 'helm-config)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x b") 'helm-for-files)
+
 ;; Magit
 (require 'magit)
 
