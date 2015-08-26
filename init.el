@@ -221,11 +221,11 @@
 (defun ruby-mode-set-encoding () ())
 
 ;; javascript
-(setq js3-mirror-mode t)
-(autoload 'js3-mode "js3-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
+(setq js2-mirror-mode t)
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-(add-hook 'js3-mode-hook
+(add-hook 'js2-mode-hook
           #'(lambda ()
              (require 'js)
              (setq js-indent-level 2
