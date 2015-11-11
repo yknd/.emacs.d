@@ -186,6 +186,12 @@
 (add-hook 'ruby-mode-hook
           '(lambda ()
              (inf-ruby-keys)))
+
+;; pry
+(setq inf-ruby-default-implementation "pry")
+(setq inf-ruby-eval-binding "Pry.toplevel_binding")
+(add-hook 'inf-ruby-mode-hook 'ansi-color-for-comint-mode-on)
+
 ;; rubydb
 (autoload 'rubydb "rubydb3x"
   "run rubydb on program file in buffer" t)
