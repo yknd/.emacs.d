@@ -96,8 +96,8 @@
   (set-default-font "ricty-12")
   (set-face-font 'variable-pitch "ricty-12"))
 (when os-type-mac
-  (set-default-font "ricty-14.5")
-  (set-face-font 'variable-pitch "ricty-14.5"))
+  (set-default-font "ricty-16")
+  (set-face-font 'variable-pitch "ricty-16"))
 (set-fontset-font (frame-parameter nil 'font)
                   'japanese-jisx0208
                   '("ricty". "unicode-bmp")
@@ -126,10 +126,9 @@
 
 ; color
 (require 'color-theme)
-(require 'zenburn)
+;; (require 'zenburn)
 (color-theme-initialize)
-(color-theme-zenburn)
-
+(load-theme 'atom-one-dark t)
 
 ;; shell-mode
 (exec-path-from-shell-initialize)
