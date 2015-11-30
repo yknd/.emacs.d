@@ -22,9 +22,9 @@
   (setq initial-frame-alist
         (append (list
                  '(width . 168)
-                 '(height . 64)
-                 '(top . 72)
-                 '(left . 512)
+                 '(height . 58)
+                 '(top . 36)
+                 '(left . 128)
                  )
                 initial-frame-alist)))
 (when os-type-mac  ;; MacBookPro
@@ -93,8 +93,10 @@
 
 ;; font
 (when os-type-linux
-  (set-default-font "ricty-12")
-  (set-face-font 'variable-pitch "ricty-12"))
+  ;; (set-default-font "ricty-11")
+  ;; (set-face-font 'variable-pitch "ricty-11"))
+  (set-default-font "hack-11")
+  (set-face-font 'variable-pitch "hack-11"))
 (when os-type-mac
   (set-default-font "ricty-16")
   (set-face-font 'variable-pitch "ricty-16"))
