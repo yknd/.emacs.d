@@ -64,7 +64,7 @@
 (global-set-key "\C-x\C-b" 'buffer-menu)
 
 ; line number
-(global-linum-mode t)
+;; (global-linum-mode t)
 (global-set-key [f9] 'linum-mode)
 
 ; Insert current time
