@@ -222,6 +222,10 @@
 ;; encoding comment
 (defun ruby-mode-set-encoding () ())
 
+;; elixir
+(require 'elixir-mode)
+(add-to-list 'auto-mode-alist '("\\.elixir2\\'" . elixir-mode))
+
 ;; javascript
 (setq js2-mirror-mode t)
 (autoload 'js2-mode "js2-mode" nil t)

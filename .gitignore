@@ -2,3 +2,4 @@ auto-save-list/
 elisp/*.elc
 eshell/
 /tramp
+recentf
