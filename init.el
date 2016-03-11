@@ -126,9 +126,13 @@
 
 ; color
 (require 'color-theme)
-;; (require 'zenburn)
 (color-theme-initialize)
-(load-theme 'atom-one-dark t)
+;; (load-theme 'atom-one-dark t)
+(load-theme 'misterioso t)
+
+;; cursor
+(setq cursor-type 'hollow)
+(set-cursor-color 'alternateSelectedControlColor)
 
 ;; shell-mode
 (exec-path-from-shell-initialize)
