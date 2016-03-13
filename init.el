@@ -132,7 +132,7 @@
 
 ;; cursor
 (setq cursor-type 'hollow)
-(set-cursor-color 'alternateSelectedControlColor)
+(set-cursor-color "#253F82")
 
 ;; shell-mode
 (exec-path-from-shell-initialize)
