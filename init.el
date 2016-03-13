@@ -124,13 +124,8 @@
   (require 'mozc)
   (setq default-input-method "japanese-mozc"))
 
-; color
-(require 'color-theme)
-(color-theme-initialize)
-;; (load-theme 'atom-one-dark t)
+; theme
 (load-theme 'misterioso t)
-
-;; cursor
 (setq cursor-type 'hollow)
 (set-cursor-color "#253F82")
 
