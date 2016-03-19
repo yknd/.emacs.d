@@ -4653,6 +4653,7 @@ Provided by Quack: http://www.neilvandyke.org/quack/"
 ;;                          (cdr overlays)
 ;;                        '())))
 ;;     url))
+;; Package-Version: 20130126.1623
 ;; 
 ;; (defun quack-browse-overlaid-url (pt)
 ;;   ;; Dehydration.
@@ -4815,3 +4816,5 @@ Provided by Quack: http://www.neilvandyke.org/quack/"
 (provide 'quack)
 
 ;; quack.el ends here
+
+;;; quack.el ends here
