@@ -132,6 +132,9 @@
 ;; shell-mode
 (exec-path-from-shell-initialize)
 (global-set-key [f8] 'eshell)
+(autoload 'ansi-color-for-comint-mode-on "ansi-color"
+          "Set `ansi-color-for-comint-mode' to t." t)
+(add-hook 'eshell-load-hook 'ansi-color-for-comint-mode-on)
 
 ;; wdired
 (require 'wdired)
