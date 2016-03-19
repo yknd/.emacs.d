@@ -183,9 +183,6 @@
 (setq inf-ruby-eval-binding "Pry.toplevel_binding")
 (add-hook 'inf-ruby-mode-hook 'ansi-color-for-comint-mode-on)
 
-;; rubydb
-(autoload 'rubydb "rubydb3x"
-  "run rubydb on program file in buffer" t)
 ;;ruby-electric
 (require 'ruby-electric)
 (add-hook 'ruby-mode-hook
