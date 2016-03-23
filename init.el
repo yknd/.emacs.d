@@ -117,7 +117,7 @@
 ; theme
 (load-theme 'misterioso t)
 (setq cursor-type 'hollow)
-(set-cursor-color "#253F82")
+(set-cursor-color "#4277f4")
 
 ;; shell-mode
 (exec-path-from-shell-initialize)
