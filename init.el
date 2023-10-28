@@ -101,10 +101,6 @@
       (append '(("ruby" . ruby-mode)) interpreter-mode-alist))
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
-(require 'ruby-electric)
-(add-hook 'ruby-mode-hook
-          '(lambda ()
-             (ruby-electric-mode t)))
 (require 'flymake)
 (set-face-background 'flymake-errline "red4")
 (set-face-background 'flymake-warnline "dark slate blue")
@@ -156,12 +152,10 @@
             (setq css-indent-offset 2)
             (define-key css-mode-map "{" 'brace-ret-brace)
             ))
-(autoload 'scss-mode "scss-mode")
-(setq scss-compile-at-save nil)
-(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 
 ;; web-mode
 (require 'web-mode)
+(setq web-mode-attr-indent-offset 2)
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
 (setq web-mode-enable-auto-pairing t)
