@@ -64,7 +64,7 @@
 (global-whitespace-mode +1)
 
 ; theme
-(load-theme 'wombat t)
+(load-theme 'tango-dark t)
 
 ;; wdired
 (require 'wdired)
