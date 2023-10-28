@@ -1,5 +1,5 @@
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; system-type
@@ -72,7 +72,7 @@
   'wdired-change-to-wdired-mode)
 
 ;; Helm
-(require 'helm-config)
+(require 'helm)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x b") 'helm-for-files)
 
@@ -189,16 +189,18 @@
 (global-set-key (kbd "C-c C-w") 'wsl-copy-region-to-clipboard)
 (global-set-key (kbd "C-c C-y") 'wsl-paste-from-clipboard)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(web-mode vterm scss-mode ruby-electric magit js2-mode inf-ruby helm exec-path-from-shell emmet-mode elixir-mode)))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(display-line-numbers-width-start t)
+ '(package-selected-packages
+   '(rust-mode cmake-mode web-mode vterm magit js2-mode inf-ruby helm exec-path-from-shell emmet-mode elixir-mode)))
